@@ -35,6 +35,7 @@
             this.btn_AddTime = new System.Windows.Forms.Button();
             this.btn_RemoveTimer = new System.Windows.Forms.Button();
             this.tmr_Tick = new System.Windows.Forms.Timer(this.components);
+            this.btn_Pause = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // lbl_Name
@@ -88,7 +89,7 @@
             this.btn_RemoveTimer.Dock = System.Windows.Forms.DockStyle.Left;
             this.btn_RemoveTimer.Location = new System.Drawing.Point(349, 0);
             this.btn_RemoveTimer.Name = "btn_RemoveTimer";
-            this.btn_RemoveTimer.Size = new System.Drawing.Size(75, 28);
+            this.btn_RemoveTimer.Size = new System.Drawing.Size(78, 28);
             this.btn_RemoveTimer.TabIndex = 4;
             this.btn_RemoveTimer.Text = "Remove";
             this.btn_RemoveTimer.UseVisualStyleBackColor = true;
@@ -99,12 +100,25 @@
             // 
             this.tmr_Tick.Tick += new System.EventHandler(this.tmr_Tick_Tick);
             // 
+            // btn_Pause
+            // 
+            this.btn_Pause.Dock = System.Windows.Forms.DockStyle.Left;
+            this.btn_Pause.Location = new System.Drawing.Point(427, 0);
+            this.btn_Pause.Name = "btn_Pause";
+            this.btn_Pause.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.btn_Pause.Size = new System.Drawing.Size(75, 28);
+            this.btn_Pause.TabIndex = 5;
+            this.btn_Pause.Text = "Pause";
+            this.btn_Pause.UseVisualStyleBackColor = true;
+            this.btn_Pause.Click += new System.EventHandler(this.btn_Pause_Click);
+            // 
             // TimerUI
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.Controls.Add(this.btn_Pause);
             this.Controls.Add(this.btn_RemoveTimer);
             this.Controls.Add(this.btn_AddTime);
             this.Controls.Add(this.lbl_Time);
@@ -113,7 +127,7 @@
             this.MaximumSize = new System.Drawing.Size(0, 28);
             this.MinimumSize = new System.Drawing.Size(100, 28);
             this.Name = "TimerUI";
-            this.Size = new System.Drawing.Size(424, 28);
+            this.Size = new System.Drawing.Size(502, 28);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -126,5 +140,6 @@
         public System.Windows.Forms.Label lbl_Time;
         public System.Windows.Forms.Label lbl_Station;
         private System.Windows.Forms.Timer tmr_Tick;
+        private System.Windows.Forms.Button btn_Pause;
     }
 }

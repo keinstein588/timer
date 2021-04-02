@@ -12,17 +12,24 @@ namespace TimerApp
 {
     public partial class TimerUI : UserControl
     {
-        private TimeSpan timer;
-        private Color WarningColor;
+        public TimeSpan timer;
+        public Color WarningColor;
+        public Color BackgroundColor;
         public bool DeleteFlag;
         private MainWindow _parent;
+        private bool paused;
+        private bool flash;
+
         public TimerUI(TimeSpan time, MainWindow parent)
         {
             InitializeComponent();
             timer = time;
             tmr_Tick.Interval = 1000;
             tmr_Tick.Start();
-            WarningColor = Color.Red;
+            WarningColor = parent.settings.warningFlash;
+            BackgroundColor = parent.settings.background;
+            BackColor = BackgroundColor;
+            Font = parent.settings.font;
             _parent = parent;
         }
 
@@ -34,15 +41,24 @@ namespace TimerApp
 
         private void tmr_Tick_Tick(object sender, EventArgs e)
         {
-            timer = timer.Subtract(TimeSpan.FromSeconds(1));
-            lbl_Time.Text = timer.ToString("h\\:m\\:s");
-            Color temp = BackColor;
-            BackColor = WarningColor;
-            WarningColor = temp;
-            if (timer.CompareTo(TimeSpan.Zero)<=0)
+            if (!paused)
             {
-                tmr_Tick.Stop();
-                btn_RemoveTimer.Visible = true;
+                timer = timer.Subtract(TimeSpan.FromSeconds(1));
+                lbl_Time.Text = timer.ToString("h\\:m\\:s");
+                if (timer.CompareTo(new TimeSpan(0, 15, 0)) <= 0)
+                {
+                    flash = !flash;
+                    BackColor = flash ? WarningColor : BackgroundColor;
+                    //Color temp = BackColor;
+                    //BackColor = WarningColor;
+                    //WarningColor = temp;
+                }
+                if (timer.CompareTo(TimeSpan.Zero) <= 0)
+                {
+                    tmr_Tick.Stop();
+                    btn_RemoveTimer.Visible = true;
+                    btn_Pause.Visible = false;
+                }
             }
         }
 
@@ -54,8 +70,15 @@ namespace TimerApp
                 if (addTime.DialogResult==DialogResult.OK)
                 {
                     timer = timer.Add(new TimeSpan((int)addTime.num_Hours.Value, (int)addTime.num_Minutes.Value, 0));
+                    btn_RemoveTimer.Visible = false;
+                    btn_Pause.Visible = true;
                 }
             }
+        }
+
+        private void btn_Pause_Click(object sender, EventArgs e)
+        {
+            paused = !paused;
         }
     }
 }

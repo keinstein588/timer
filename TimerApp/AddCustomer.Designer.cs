@@ -36,6 +36,7 @@
             this.num_minutes = new System.Windows.Forms.NumericUpDown();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
+            this.lbl_overwrite = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.num_hours)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.num_minutes)).BeginInit();
             this.SuspendLayout();
@@ -49,6 +50,7 @@
             this.cmb_Name.Name = "cmb_Name";
             this.cmb_Name.Size = new System.Drawing.Size(162, 21);
             this.cmb_Name.TabIndex = 0;
+            this.cmb_Name.SelectedIndexChanged += new System.EventHandler(this.cmb_Name_SelectedIndexChanged);
             // 
             // btn_AddTimer
             // 
@@ -126,6 +128,16 @@
             this.label2.TabIndex = 9;
             this.label2.Text = "Minutes";
             // 
+            // lbl_overwrite
+            // 
+            this.lbl_overwrite.AutoSize = true;
+            this.lbl_overwrite.Location = new System.Drawing.Point(12, 41);
+            this.lbl_overwrite.Name = "lbl_overwrite";
+            this.lbl_overwrite.Size = new System.Drawing.Size(212, 13);
+            this.lbl_overwrite.TabIndex = 10;
+            this.lbl_overwrite.Text = "Customer has time saved from previous visit";
+            this.lbl_overwrite.Visible = false;
+            // 
             // AddCustomer
             // 
             this.AcceptButton = this.btn_AddTimer;
@@ -133,6 +145,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.btn_Cancel;
             this.ClientSize = new System.Drawing.Size(306, 129);
+            this.Controls.Add(this.lbl_overwrite);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.num_minutes);
@@ -162,5 +175,6 @@
         public System.Windows.Forms.NumericUpDown num_minutes;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label lbl_overwrite;
     }
 }
