@@ -91,10 +91,9 @@
             this.btn_RemoveTimer.Name = "btn_RemoveTimer";
             this.btn_RemoveTimer.Size = new System.Drawing.Size(78, 28);
             this.btn_RemoveTimer.TabIndex = 4;
-            this.btn_RemoveTimer.Text = "Remove";
+            this.btn_RemoveTimer.Text = "Pause";
             this.btn_RemoveTimer.UseVisualStyleBackColor = true;
-            this.btn_RemoveTimer.Visible = false;
-            this.btn_RemoveTimer.Click += new System.EventHandler(this.btn_RemoveTimer_Click);
+            this.btn_RemoveTimer.Click += new System.EventHandler(this.btn_Pause_Click);
             // 
             // tmr_Tick
             // 
@@ -106,11 +105,11 @@
             this.btn_Pause.Location = new System.Drawing.Point(427, 0);
             this.btn_Pause.Name = "btn_Pause";
             this.btn_Pause.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.btn_Pause.Size = new System.Drawing.Size(75, 28);
+            this.btn_Pause.Size = new System.Drawing.Size(94, 28);
             this.btn_Pause.TabIndex = 5;
-            this.btn_Pause.Text = "Pause";
+            this.btn_Pause.Text = "Remove Timer";
             this.btn_Pause.UseVisualStyleBackColor = true;
-            this.btn_Pause.Click += new System.EventHandler(this.btn_Pause_Click);
+            this.btn_Pause.Click += new System.EventHandler(this.btn_RemoveTimer_Click);
             // 
             // TimerUI
             // 
@@ -127,7 +126,7 @@
             this.MaximumSize = new System.Drawing.Size(0, 28);
             this.MinimumSize = new System.Drawing.Size(100, 28);
             this.Name = "TimerUI";
-            this.Size = new System.Drawing.Size(502, 28);
+            this.Size = new System.Drawing.Size(521, 28);
             this.ResumeLayout(false);
             this.PerformLayout();
 

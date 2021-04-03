@@ -97,6 +97,7 @@
             // 
             // btn_add
             // 
+            this.btn_add.DialogResult = System.Windows.Forms.DialogResult.OK;
             this.btn_add.Location = new System.Drawing.Point(12, 53);
             this.btn_add.Name = "btn_add";
             this.btn_add.Size = new System.Drawing.Size(75, 23);

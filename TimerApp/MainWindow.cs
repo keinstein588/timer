@@ -103,6 +103,9 @@ namespace TimerApp
             {
                 if (Controls[i] is TimerUI && (Controls[i] as TimerUI).DeleteFlag)
                 {
+                    TimerUI timer = Controls[i] as TimerUI;
+                    customers.Find(x => x.name.CompareTo(timer.lbl_Name.Text) == 0).time = timer.timer;
+                    datasetUpdated = true;
                     Controls.RemoveAt(i);
                 }
             }

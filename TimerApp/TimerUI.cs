@@ -49,15 +49,15 @@ namespace TimerApp
                 {
                     flash = !flash;
                     BackColor = flash ? WarningColor : BackgroundColor;
-                    //Color temp = BackColor;
-                    //BackColor = WarningColor;
-                    //WarningColor = temp;
+                }
+                else
+                {
+                    flash = false;
+                    BackColor = BackgroundColor;
                 }
                 if (timer.CompareTo(TimeSpan.Zero) <= 0)
                 {
                     tmr_Tick.Stop();
-                    btn_RemoveTimer.Visible = true;
-                    btn_Pause.Visible = false;
                 }
             }
         }
@@ -70,8 +70,6 @@ namespace TimerApp
                 if (addTime.DialogResult==DialogResult.OK)
                 {
                     timer = timer.Add(new TimeSpan((int)addTime.num_Hours.Value, (int)addTime.num_Minutes.Value, 0));
-                    btn_RemoveTimer.Visible = false;
-                    btn_Pause.Visible = true;
                 }
             }
         }
